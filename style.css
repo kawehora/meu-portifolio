@@ -38,9 +38,18 @@ a {
   color: inherit;
 }
 
+
+<!-- ===== ANIMAÇÃO TEXTO 2 ===== -->
 .text-red {
-  color: var(--red-light);
+  color: var(--red-light); /* Cor principal */
+  transition: color 0.3s ease;
 }
+
+.text-red:hover {
+  color: #ffffff; /* Branco ao passar o mouse */
+}
+  
+
 
 /* ===== FUNDO ANIMADO EM LOOP ===== */
 .bg-animated {
@@ -257,7 +266,7 @@ a {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,59,59,0.6); }
   50% { opacity: 0.5; box-shadow: 0 0 0 6px rgba(255,59,59,0); }
 }
-
+<!  -- ===== Animação título ===== -->
 .hero-title {
   font-size: 4rem;
   line-height: 1.05;
@@ -299,6 +308,16 @@ a {
 .hero-socials a:hover {
   color: var(--red-light);
 }
+
+
+/* ===== ANIMAÇÃO DE ENTRADA ===== */
+
+
+
+
+
+
+
 
 /* CODE WINDOW */
 .code-window {
