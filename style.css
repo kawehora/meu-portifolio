@@ -263,6 +263,12 @@ a {
   line-height: 1.05;
   font-weight: 800;
   margin-bottom: 24px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.hero-title:hover {
+  color: var(--red-light); /* Cor ao passar o mouse */
 }
 
 .hero-desc {
