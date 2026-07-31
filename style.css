@@ -499,9 +499,10 @@ a {
   bottom: 0;
   height: 0;
   width: 100%;
-  background-color: #ffc506;
+  background-color: #ffff;
   transition: 0.4s ease;
   z-index: -1;
+  border-radius: 12px;
 }
 
 .btn:hover::after {
