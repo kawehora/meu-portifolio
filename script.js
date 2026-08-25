@@ -32,13 +32,14 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // ===== ANIMAÇÃO FADE-IN AO SCROLLAR (cards) =====
 const revealItems = document.querySelectorAll(
-  '.stat-card, .skill-card, .service-card, .about-text, .cta-box'
+  '.stat-card, .skill-card, .service-card, .project-card, .about-text, .cta-box'
 );
 
 revealItems.forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(24px)';
-  el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+  el.style.filter = 'blur(10px)';
+  el.style.transition = 'opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease';
 });
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -46,7 +47,11 @@ const revealObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = '1';
       entry.target.style.transform = 'translateY(0)';
-      revealObserver.unobserve(entry.target);
+      entry.target.style.filter = 'blur(0)';
+    } else {
+      entry.target.style.opacity = '0';
+      entry.target.style.transform = 'translateY(24px)';
+      entry.target.style.filter = 'blur(10px)';
     }
   });
 }, { threshold: 0.15 });

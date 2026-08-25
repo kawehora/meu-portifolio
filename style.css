@@ -39,7 +39,7 @@ a {
 }
 
 
-<!-- ===== ANIMAÇÃO TEXTO 2 ===== -->
+/* ===== ANIMAÇÃO TEXTO 2 ===== */
 .text-red {
   color: var(--red-light); /* Cor principal */
   transition: color 0.3s ease;
@@ -618,6 +618,82 @@ a {
   transition: width 1.4s ease;
 }
 
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,90,90,0.4);
+}
+
+.project-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-number {
+  color: var(--red-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.project-content h3 {
+  font-size: 1.35rem;
+  margin: 10px 0 8px;
+}
+
+.project-content p {
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tags span {
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: #d7c7c7;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+}
+
 /* SERVICES */
 .services-grid {
   display: grid;
@@ -701,6 +777,7 @@ a {
   .hero-content { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .bars-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: 3rem; }
@@ -735,6 +812,7 @@ a {
   .hero-title { font-size: 2.3rem; }
   .section-title { font-size: 1.9rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .cta-title { font-size: 1.9rem; }
   .cta-box { padding: 50px 24px; }
