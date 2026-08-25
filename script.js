@@ -57,3 +57,21 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 revealItems.forEach(el => revealObserver.observe(el));
+
+// ===== BRILHO DOS CARDS ACOMPANHANDO O CURSOR =====
+const interactiveCards = document.querySelectorAll(
+  '.stat-card, .skill-card, .service-card, .project-card'
+);
+
+interactiveCards.forEach(card => {
+  card.addEventListener('pointermove', event => {
+    const bounds = card.getBoundingClientRect();
+    card.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`);
+    card.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`);
+  });
+
+  card.addEventListener('pointerleave', () => {
+    card.style.removeProperty('--pointer-x');
+    card.style.removeProperty('--pointer-y');
+  });
+});

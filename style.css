@@ -519,6 +519,71 @@ a {
   gap: 20px;
 }
 
+.stat-card,
+.skill-card,
+.service-card,
+.project-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.stat-card::before,
+.skill-card::before,
+.service-card::before,
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    220px circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    rgba(255, 59, 59, 0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.stat-card::after,
+.skill-card::after,
+.service-card::after,
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    130px circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    rgba(255, 110, 110, 0.72),
+    rgba(255, 59, 59, 0.18) 42%,
+    transparent 75%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.stat-card:hover::before,
+.skill-card:hover::before,
+.service-card:hover::before,
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover::after,
+.skill-card:hover::after,
+.service-card:hover::after,
+.project-card:hover::after {
+  opacity: 1;
+}
+
 .stat-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
