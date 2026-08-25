@@ -75,3 +75,44 @@ interactiveCards.forEach(card => {
     card.style.removeProperty('--pointer-y');
   });
 });
+
+// ===== BRILHO DOS TEXTOS VERMELHOS ACOMPANHANDO O CURSOR =====
+const interactiveTexts = document.querySelectorAll('.text-red');
+
+interactiveTexts.forEach(text => {
+  text.addEventListener('pointerenter', () => {
+    text.classList.add('is-pointer-active');
+  });
+
+  text.addEventListener('pointermove', event => {
+    const bounds = text.getBoundingClientRect();
+    text.style.setProperty('--text-pointer-x', `${event.clientX - bounds.left}px`);
+    text.style.setProperty('--text-pointer-y', `${event.clientY - bounds.top}px`);
+  });
+
+  text.addEventListener('pointerleave', () => {
+    text.classList.remove('is-pointer-active');
+    text.style.removeProperty('--text-pointer-x');
+    text.style.removeProperty('--text-pointer-y');
+  });
+});
+
+const cursorWhiteTexts = document.querySelectorAll('.text-cursor-white');
+
+cursorWhiteTexts.forEach(text => {
+  text.addEventListener('pointerenter', () => {
+    text.classList.add('is-pointer-active');
+  });
+
+  text.addEventListener('pointermove', event => {
+    const bounds = text.getBoundingClientRect();
+    text.style.setProperty('--white-text-pointer-x', `${event.clientX - bounds.left}px`);
+    text.style.setProperty('--white-text-pointer-y', `${event.clientY - bounds.top}px`);
+  });
+
+  text.addEventListener('pointerleave', () => {
+    text.classList.remove('is-pointer-active');
+    text.style.removeProperty('--white-text-pointer-x');
+    text.style.removeProperty('--white-text-pointer-y');
+  });
+});
