@@ -38,6 +38,43 @@ a {
   color: inherit;
 }
 
+/* ===== INTRO DO LOGO ===== */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+}
+
+.intro-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: var(--red-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  transition: top 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    left 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body > :not(.intro-screen) {
+  filter: blur(10px);
+  opacity: 0.35;
+  transition: filter 1.2s ease-out, opacity 1.2s ease-out;
+}
+
+body.intro-complete > :not(.intro-screen) {
+  filter: blur(0);
+  opacity: 1;
+}
+
 
 /* ===== ANIMAÇÃO TEXTO 2 ===== */
 .text-red {

@@ -1,4 +1,33 @@
 // ===== MENU MOBILE =====
+const introScreen = document.getElementById('introScreen');
+const introLogo = document.getElementById('introLogo');
+const headerLogo = document.querySelector('.logo');
+
+const playLogoIntro = () => {
+  if (!introScreen || !introLogo || !headerLogo) return;
+
+  const target = headerLogo.getBoundingClientRect();
+  const introBounds = introLogo.getBoundingClientRect();
+  const targetScale = Math.min(target.width / introBounds.width, target.height / introBounds.height);
+  const targetCenterX = target.left + target.width / 2;
+  const targetCenterY = target.top + target.height / 2;
+
+  setTimeout(() => {
+    introLogo.style.top = `${targetCenterY}px`;
+    introLogo.style.left = `${targetCenterX}px`;
+    introLogo.style.transform = `translate(-50%, -50%) scale(${targetScale})`;
+
+    setTimeout(() => {
+      document.body.classList.add('intro-complete');
+      introScreen.style.transition = 'opacity 1.2s ease-out';
+      introScreen.style.opacity = '0';
+      setTimeout(() => introScreen.remove(), 1200);
+    }, 650);
+  }, 500);
+};
+
+window.addEventListener('load', playLogoIntro, { once: true });
+
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
