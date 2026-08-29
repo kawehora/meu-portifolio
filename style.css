@@ -222,11 +222,11 @@ body.intro-complete > :not(.intro-screen) {
 .navbar {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 20px 40px;
+  padding: 14px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 18px;
 }
 
 .logo {
@@ -240,13 +240,14 @@ body.intro-complete > :not(.intro-screen) {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 36px;
-  font-size: 0.95rem;
+  gap: 24px;
+  font-size: 0.85rem;
   color: #cbb9b9;
 }
 
 .nav-links a {
   transition: color 0.25s ease;
+  padding: 6px 0;
 }
 
 .nav-links a:hover {
